@@ -17,7 +17,7 @@ services:
       KAFKA_BROKER_ID: 0
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://192.168.1.60:9092
       KAFKA_CREATE_TOPICS: "first-topic:2:0"   #kafka启动后初始化一个有2个partition(分区)0个副本名叫 first-topic 的topic
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:4030
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
     volumes:
       - /home/docker-data/kafka/kafka-logs:/kafka
