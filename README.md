@@ -14,7 +14,7 @@ docker-compose -f kafka-single-docker-compose.yaml up -d
 
 ```shell
 # 打包镜像
-docker build  -f centos-java11-opecv460-dockerfile -t java11-opencv460:v20221207
+docker build  -f ubuntu-java11-opecv460-dockerfile -t java11-opencv460:v20221207
 # 上传到中央仓库
 docker tag b32320b21028  loorr/java11-opencv460:v20221217
 docker push loorr/java11-opencv460:v20221217

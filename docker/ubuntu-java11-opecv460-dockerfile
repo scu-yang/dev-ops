@@ -68,5 +68,7 @@ RUN cd /tmp/build && make -j4 && make install
 RUN rm -rf /tmp/build && rm -rf /tmp/opencv*
 
 RUN mvn install:install-file -Dfile=/usr/local/share/java/opencv4/opencv-460.jar -DgroupId=tf.libs -DartifactId=opencv -Dversion=4.6.0 -Dpackaging=jar
+
 RUN cp /usr/local/share/java/opencv4/libopencv_java460.so /lib
+
 CMD tail -f /dev/null
