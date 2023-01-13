@@ -1,3 +1,4 @@
 # pip3 install torch torchvision torchaudio
 flask == 2.1.2
 efficientnet_pytorch == 0.7.1
+opencv-python == 4.7.0.68
