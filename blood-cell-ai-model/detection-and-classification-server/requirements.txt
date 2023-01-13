@@ -1,5 +1,5 @@
 # pip3 install torch torchvision torchaudio
 flask == 2.1.2
-pandas == 1.5.2
+pandas == 1.3.3
 efficientnet_pytorch == 0.7.1
 opencv-python == 4.7.0.68
