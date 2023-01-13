@@ -2,6 +2,8 @@ FROM pytorch/pytorch:1.12.1-cuda11.3-cudnn8-runtime
 WORKDIR /home
 COPY . /home/
 
+RUN apt-get update
+RUN apt-get install ffmpeg libsm6 libxext6 -y
 RUN pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 EXPOSE 8080
