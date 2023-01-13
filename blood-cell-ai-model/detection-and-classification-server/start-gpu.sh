@@ -11,10 +11,7 @@ if [[ $IS_RUNNING == 1 ]]; then
     echo "container $NAME is remove ..."
 fi
 
-docker stop $NAME
-docker rm $NAME
 echo "container $NAME is remove ..."
-docker run -i -t -d -p 5010:8080 -v /home/java/dicom-file/dicom-image/image:/home/image \
--v /home/java/dicom-file/dicom-image-mask:/home/work_root/predict_mask  \
+docker run -i -t -d -p 5012:8080 \
  --restart=always  --gpus all --name $NAME  $NAME:$version
 echo "container $NAME is start ..."
