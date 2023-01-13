@@ -1,0 +1,8 @@
+FROM pytorch/pytorch:1.12.1-cuda11.3-cudnn8-runtime
+WORKDIR /home
+COPY . /home/
+
+RUN pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+EXPOSE 8080
+CMD ["python", "/home/demo2.py"]

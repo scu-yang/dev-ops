@@ -1,0 +1,2 @@
+# pip3 install torch torchvision torchaudio
+flask == 2.1.2
