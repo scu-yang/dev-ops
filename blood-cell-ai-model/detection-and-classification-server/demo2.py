@@ -86,7 +86,7 @@ class objectDetectionAndClassification:
         im = cv2.imread(image_path)
         # im = torch.from_numpy(im).to(self._device)
         im0, img = self.preprocess(im)
-
+        img = img.to(torch.float32)
         pred = self._detection_model(img, augment=False)[0]
         pred = pred.float()
         pred = non_max_suppression(pred, 0.4, 0.3)
