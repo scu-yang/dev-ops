@@ -1,0 +1,5 @@
+{
+  "d_pth": "yolov5.pt",
+  "c_pth": "efficientnet_b4_model.pth",
+  "image-folder": "image"
+}

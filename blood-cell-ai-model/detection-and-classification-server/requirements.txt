@@ -5,3 +5,4 @@ efficientnet_pytorch == 0.7.1
 opencv-python == 4.7.0.68
 matplotlib==1.21.5
 seaborn==0.12.2
+jsonify==0.5

@@ -11,7 +11,7 @@ from utils.general import non_max_suppression, scale_coords, letterbox
 import cv2
 
 
-class objectDetectionAndClassification:
+class ObjectDetectionAndClassification:
     classes = 1
     mean = (0.5, 0.5, 0.5)
     std = (0.5, 0.5, 0.5)
@@ -148,7 +148,7 @@ if __name__ == '__main__':
     p_pth = "1086hp90j4rgsvdqeo12nood7l.jpg"
     work_space = "/work-space"
     start = time.time()
-    model = objectDetectionAndClassification(d_pth, c_pth, work_space)
+    model = ObjectDetectionAndClassification(d_pth, c_pth, work_space)
     result = model.detection_model_eval(p_pth)
     f_result = model.classification_model_eval(result)
     print(result, f_result)
