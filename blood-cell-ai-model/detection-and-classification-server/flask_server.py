@@ -38,7 +38,7 @@ def handle_exception(e):
 
 
 
-@app.route("/api/batch-to-mask", methods=["GET"])
+@app.route("/api/yolo-detection-class/get-blood-cell-class", methods=["GET"])
 def batch_to_mask():
     req = request_parse()
     imagePath = req["imagePath"]
@@ -51,17 +51,39 @@ def batch_to_mask():
     f_result = model.classification_model_eval(result)
     end = time.time()
     print("{} succ class: {}, spend: {}", end, len(f_result), end-start)
-    return jsonify(f_result)
+    return jsonify(convert_class_result(f_result))
+
+def convert_class_result(data: list)->dict:
+    if data is None or len(data) == 0:
+        return {}
+    results = []
+    for item in list:
+        ans = {
+            "x": -1,
+            "y": -1,
+            "w": -1,
+            "h": -1,
+            "class": "-1"
+        }.copy()
+        if len(item) == 2:
+            rect = item[0]
+            ans["x"] = rect[0]
+            ans["y"] = rect[1]
+            ans["w"] = rect[2]
+            ans["h"] = rect[3]
+            ans["class"] = item[1]
+            results.append(ans)
+
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, This Is Unet Model Server! </p>"
+    return "<p>Hello, This Is Yolo Model Server! </p>"
 
 
-if __name__ == '__main__':
-    configFilePath = args.config
-    print("configFilePath: ", configFilePath)
-    config = flask_config.Config(configFilePath)
-    print(config.image_folder)
-    model = ObjectDetectionAndClassification(config.d_pth, config.c_pth, "")
-    app.run(port=8080, debug=True, host="0.0.0.0")
+# if __name__ == '__main__':
+#     configFilePath = args.config
+#     print("configFilePath: ", configFilePath)
+#     config = flask_config.Config(configFilePath)
+#     print(config.image_folder)
+#     model = ObjectDetectionAndClassification(config.d_pth, config.c_pth, "")
+#     app.run(port=8080, debug=True, host="0.0.0.0")
