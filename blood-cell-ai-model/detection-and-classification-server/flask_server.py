@@ -45,6 +45,10 @@ def batch_to_mask():
     start = time.time()
     print("{} rev req: {}".format(start, imagePath))
     path = os.path.join(config.image_folder, imagePath)
+    fileExsit = os.path.exists(path)
+    if fileExsit is False:
+        print("{} file not exsit", imagePath)
+        return jsonify()
     result = model.detection_model_eval(path)
     if len(result) == 0:
         return jsonify()
