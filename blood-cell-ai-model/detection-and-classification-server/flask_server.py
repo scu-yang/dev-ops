@@ -80,10 +80,10 @@ def hello_world():
     return "<p>Hello, This Is Yolo Model Server! </p>"
 
 
-# if __name__ == '__main__':
-#     configFilePath = args.config
-#     print("configFilePath: ", configFilePath)
-#     config = flask_config.Config(configFilePath)
-#     print(config.image_folder)
-#     model = ObjectDetectionAndClassification(config.d_pth, config.c_pth, "")
-#     app.run(port=8080, debug=True, host="0.0.0.0")
+if __name__ == '__main__':
+    configFilePath = args.config
+    print("configFilePath: ", configFilePath)
+    config = flask_config.Config(configFilePath)
+    print(config.image_folder)
+    model = ObjectDetectionAndClassification(config.d_pth, config.c_pth, "")
+    app.run(port=8080, debug=True, host="0.0.0.0")
