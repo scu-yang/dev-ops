@@ -4,7 +4,7 @@ from common import request_parse
 import os
 import flask_config
 import argparse
-import jsonify
+from flask import jsonify
 import time
 
 __version__ = "2023.01.14.01"
