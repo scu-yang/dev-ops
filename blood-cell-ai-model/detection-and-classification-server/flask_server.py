@@ -54,7 +54,7 @@ def batch_to_mask():
         return jsonify()
     f_result = model.classification_model_eval(result)
     end = time.time()
-    print("{} succ class: {}, spend: {}", end, len(f_result), end-start)
+    print("{} succ class: {}, spend: {}".format(end, len(f_result), end-start))
     return jsonify(convert_class_result(f_result))
 
 def convert_class_result(data: list)->dict:
@@ -77,7 +77,7 @@ def convert_class_result(data: list)->dict:
             ans["h"] = rect[3]
             ans["class"] = item[1]
             results.append(ans)
-
+    return results
 
 @app.route("/")
 def hello_world():
