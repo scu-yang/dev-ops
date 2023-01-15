@@ -57,7 +57,7 @@ def convert_class_result(data: list)->dict:
     if data is None or len(data) == 0:
         return {}
     results = []
-    for item in list:
+    for item in data:
         ans = {
             "x": -1,
             "y": -1,
