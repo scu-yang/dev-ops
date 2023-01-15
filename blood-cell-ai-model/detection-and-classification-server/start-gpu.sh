@@ -13,5 +13,6 @@ fi
 
 echo "container $NAME is remove ..."
 docker run -i -t -d -p 5012:8080 \
+-v /home/image_root/ossRoot:/home/image \
  --restart=always  --gpus all --name $NAME  $NAME:$version
 echo "container $NAME is start ..."
